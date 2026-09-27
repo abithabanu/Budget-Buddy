@@ -1,0 +1,322 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #4A148C, #7B1FA2);
+    margin: 0;
+    padding: 20px;
+}
+
+/* Main Container */
+.container{
+    max-width: 1000px;
+    margin: auto;
+    background: #8E44AD;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Heading */
+h1{
+    text-align: center;
+    color: white;
+    margin-bottom: 5px;
+}
+
+p{
+    text-align: center;
+    color: #F3E5F5;
+    margin-bottom: 25px;
+}
+
+/* Dashboard Cards */
+.dashboard{
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.card{
+    flex: 1;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.card:hover{
+    transform: translateY(-5px);
+}
+
+.income-card{
+    background: linear-gradient(135deg, #6A1B9A, #AB47BC);
+}
+
+.expense-card{
+    background: linear-gradient(135deg, #7B1FA2, #CE93D8);
+}
+
+.balance-card{
+    background: linear-gradient(135deg, #4A148C, #9C27B0);
+}
+
+/* Inputs */
+select,
+input{
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #D1C4E9;
+    border-radius: 10px;
+    font-size: 15px;
+    box-sizing: border-box;
+    background: #F8F0FF;
+}
+
+select:focus,
+input:focus{
+    outline: none;
+    border-color: #BA68C8;
+    box-shadow: 0 0 8px rgba(186,104,200,0.5);
+}
+
+/* Add Button */
+button{
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #BA68C8, #E1BEE7);
+    color: #4A148C;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover{
+    transform: scale(1.02);
+}
+
+/* Table */
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+th{
+    background: #4A148C;
+    color: white;
+    padding: 12px;
+}
+
+td{
+    padding: 12px;
+    color: white;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+tr:nth-child(even){
+    background: rgba(255,255,255,0.08);
+}
+
+tr:nth-child(odd){
+    background: rgba(255,255,255,0.15);
+}
+
+tr:hover{
+    background: rgba(255,255,255,0.25);
+}
+
+/* Delete Button */
+.delete-btn{
+    background: #D81B60;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: auto;
+}
+
+.delete-btn:hover{
+    background: #AD1457;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+    .dashboard{
+        flex-direction: column;
+    }
+
+    .container{
+        width: 95%;
+    }
+
+    table{
+        font-size: 14px;
+    }
+}
+.chart-container{
+    margin-top:30px;
+    background:#F8F0FF;
+    padding:20px;
+    border-radius:15px;
+}
+
+.chart-container canvas{
+    max-height:400px;
+}
+.report-card{
+    margin-top:30px;
+    background:#F8F0FF;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.report-card h3{
+    color:#6A1B9A;
+}
+
+.report-card p{
+    color:#4A148C;
+    font-size:18px;
+    font-weight:bold;
+}
+/* Dark Mode */
+
+.dark-mode{
+    background: #121212;
+}
+
+.dark-mode .container{
+    background: #1E1E1E;
+}
+
+.dark-mode h1,
+.dark-mode p,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode td,
+.dark-mode th{
+    color: white;
+}
+
+.dark-mode input,
+.dark-mode select{
+    background: #2D2D2D;
+    color: white;
+    border: 1px solid #555;
+}
+
+.dark-mode .report-card{
+    background: #2D2D2D;
+}
+
+.dark-mode .report-card p{
+    color: white;
+}
+
+.dark-mode .chart-container{
+    background: #2D2D2D;
+}
+
+#themeToggle{
+    margin-bottom: 15px;
+}
+button{
+    transition: 0.2s ease-in-out;
+}
+
+button:active{
+    transform: scale(0.95);
+}
+
+table{
+    overflow-x: auto;
+}
+
+.container{
+    backdrop-filter: blur(10px);
+}
+
+.user-section{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+#userEmail{
+
+    color:white;
+    font-weight:bold;
+    font-size:16px;
+}
+
+#logoutBtn{
+
+    width:auto;
+    padding:10px 20px;
+}
+
+body{
+    margin:0;
+    display:flex;
+    font-family:Arial,sans-serif;
+}
+
+.sidebar{
+    width:250px;
+    min-height:100vh;
+    background:#6A1B9A;
+    padding:20px;
+    box-sizing:border-box;
+}
+
+.sidebar h2{
+    color:white;
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.sidebar button{
+    width:100%;
+    margin-bottom:10px;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.main-content{
+    flex:1;
+    padding:20px;
+    overflow-y:auto;
+}
+
+.user-section{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+#userEmail{
+    font-size:18px;
+    font-weight:bold;
+}
+
+#dashboardPage,
+#transactionPage,
+#chartPage,
+#reportPage{
+    width:100%;
+}

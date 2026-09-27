@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BudgetBuddy Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>💜 BudgetBuddy</h1>
+    <h2>Login</h2>
+
+    <input type="email" id="email" placeholder="Enter Email">
+
+    <input type="password" id="password" placeholder="Enter Password">
+
+    <button onclick="login()">Login</button>
+
+    <p>
+        New User?
+        <a href="signup.html">Signup</a>
+    </p>
+
+</div>
+
+<script>
+
+function login(){
+
+    let email =
+    document.getElementById("email").value;
+
+    let password =
+    document.getElementById("password").value;
+
+    fetch("http://localhost:5000/login",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+            email,
+            password
+        })
+
+    })
+
+    .then(res=>res.json())
+
+    .then(data=>{
+
+        if(data.message==="Login Successful"){
+
+           if(data.message==="Login Successful"){
+
+    localStorage.setItem("loggedIn","true");
+
+    localStorage.setItem(
+        "userId",
+        data.userId
+    );
+
+    localStorage.setItem(
+        "userEmail",
+        email
+    );
+
+    window.location.href="index.html";
+}
+
+            window.location.href=
+            "index.html";
+
+        }else{
+
+            alert(data.message);
+        }
+
+    })
+
+    .catch(err=>{
+        alert("Server Error");
+    });
+}
+
+</script>
+
+</body>
+</html>

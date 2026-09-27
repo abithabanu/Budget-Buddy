@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>BudgetBuddy Signup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+```
+<h1>💜 BudgetBuddy</h1>
+<h2>Create Account</h2>
+
+<input
+type="text"
+id="full_name"
+placeholder="Enter Full Name">
+
+<input
+type="number"
+id="age"
+placeholder="Enter Age">
+
+<input
+type="text"
+id="mobile"
+placeholder="Enter Mobile Number">
+
+<input
+type="email"
+id="email"
+placeholder="Enter Email">
+
+<input
+type="password"
+id="password"
+placeholder="Enter Password">
+
+<button onclick="signup()">
+    Create Account
+</button>
+
+<p>
+    Already have an account?
+    <a href="login.html">Login</a>
+</p>
+```
+
+</div>
+
+<script>
+
+function signup(){
+
+    let full_name =
+    document.getElementById("full_name").value;
+
+    let age =
+    document.getElementById("age").value;
+
+    let mobile =
+    document.getElementById("mobile").value;
+
+    let email =
+    document.getElementById("email").value;
+
+    let password =
+    document.getElementById("password").value;
+
+    if(
+        full_name === "" ||
+        age === "" ||
+        mobile === "" ||
+        email === "" ||
+        password === ""
+    ){
+        alert("Please fill all fields");
+        return;
+    }
+
+    fetch("http://localhost:5000/signup",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+            full_name,
+            age,
+            mobile,
+            email,
+            password
+        })
+
+    })
+
+    .then(res=>res.json())
+
+    .then(data=>{
+
+        alert(data.message);
+
+        if(data.message==="Signup Successful"){
+            window.location.href="login.html";
+        }
+
+    })
+
+    .catch(err=>{
+        alert("Error connecting to server");
+    });
+
+}
+
+</script>
+
+</body>
+</html>

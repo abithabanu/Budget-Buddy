@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BudgetBuddy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sidebar">
+
+```
+<h2>💜 BudgetBuddy</h2>
+
+<button onclick="showPage('dashboardPage')">
+    🏠 Dashboard
+</button>
+
+<button onclick="showPage('transactionPage')">
+    ➕ Transactions
+</button>
+
+<button onclick="showPage('chartPage')">
+    📊 Charts
+</button>
+
+<button onclick="showPage('reportPage')">
+    📄 Reports
+</button>
+
+<button onclick="logout()">
+    🚪 Logout
+</button>
+```
+
+</div>
+
+<div class="main-content">
+
+```
+<div class="user-section">
+
+    <span id="userEmail"></span>
+
+    <button id="themeToggle"
+    onclick="toggleTheme()">
+    🌙 Dark Mode
+    </button>
+
+</div>
+
+<div id="dashboardPage">
+
+    <h1>Dashboard</h1>
+
+    <div class="dashboard">
+
+        <div class="card income-card">
+            <h3>Total Income</h3>
+            <h2>₹<span id="incomeTotal">0</span></h2>
+        </div>
+
+        <div class="card expense-card">
+            <h3>Total Expense</h3>
+            <h2>₹<span id="expenseTotal">0</span></h2>
+        </div>
+
+        <div class="card balance-card">
+            <h3>Balance</h3>
+            <h2>₹<span id="balance">0</span></h2>
+        </div>
+
+    </div>
+
+</div>
+
+<div id="transactionPage" style="display:none;">
+
+    <h1>Add Transaction</h1>
+
+    <select id="type">
+        <option value="">Select Type</option>
+        <option value="Income">Income</option>
+        <option value="Expense">Expense</option>
+    </select>
+
+    <input type="text"
+    id="category"
+    placeholder="Enter Category">
+
+    <input type="number"
+    id="amount"
+    placeholder="Enter Amount">
+
+    <input type="date"
+    id="date">
+
+    <button onclick="addTransaction()">
+        Add Transaction
+    </button>
+
+    <hr>
+
+    <input
+    type="text"
+    id="search"
+    placeholder="🔍 Search Category"
+    onkeyup="displayTransactions()">
+
+    <select id="filter"
+    onchange="displayTransactions()">
+
+        <option value="All">
+        All Transactions
+        </option>
+
+        <option value="Income">
+        Income
+        </option>
+
+        <option value="Expense">
+        Expense
+        </option>
+
+    </select>
+
+    <button onclick="clearAllTransactions()">
+        🗑️ Clear All
+    </button>
+
+    <button onclick="exportCSV()">
+        📥 CSV
+    </button>
+
+    <button onclick="exportPDF()">
+        📄 PDF
+    </button>
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>Type</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+
+        </thead>
+
+        <tbody id="transactionTable">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<div id="chartPage" style="display:none;">
+
+    <h1>Charts</h1>
+
+    <div class="chart-container">
+        <canvas id="expenseChart"></canvas>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="barChart"></canvas>
+    </div>
+
+</div>
+
+<div id="reportPage" style="display:none;">
+
+    <h1>Reports</h1>
+
+    <div class="report-card">
+
+        <p>
+            Total Income:
+            ₹<span id="reportIncome">0</span>
+        </p>
+
+        <p>
+            Total Expense:
+            ₹<span id="reportExpense">0</span>
+        </p>
+
+        <p>
+            Balance:
+            ₹<span id="reportBalance">0</span>
+        </p>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
